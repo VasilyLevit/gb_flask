@@ -8,20 +8,25 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
-def base():
-    return render_template('fashion_base.html')
+@app.route('/main')
+def main():
+    context = {'title': 'Главная'}
+    return render_template('fashion_main.html', **context)
 
 @app.route('/clothing/')
 def clothing():
-    return render_template('fashion_clothing.html')
+    context = {'title': 'Одежда'}
+    return render_template('fashion_clothing.html', **context)
 
 @app.route('/shoes/')
 def shoes():
-    return render_template('fashion_shoes.html')
+    context = {'title': 'Обувь'}
+    return render_template('fashion_shoes.html', **context)
 
 @app.route('/jewerly/')
 def jewerly():
-    return render_template('fashion_jewerly.html')
+    context = {'title': 'Украшения'}
+    return render_template('fashion_jewerly.html', **context)
 
 
 if __name__ == '__main__':
